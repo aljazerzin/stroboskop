@@ -26,10 +26,12 @@ window.addEventListener('load', function() {
 	
 	var spremeniBarvo = function(id) {
 		document.getElementById("stroboskop").style.backgroundColor = "#"+vrednosti[id];
-
+		
 		if (ustavi) {
 			ustavi = false;
 		} else {
+			minCas = document.querySelector("#min").value;
+			maxCas = document.querySelector("#max").value;
 			novId = (id+1) % vrednosti.length;
 			timeout = Math.floor((Math.random() * (maxCas-minCas)) + minCas);
 			setTimeout(function() {spremeniBarvo(novId)} , timeout);
